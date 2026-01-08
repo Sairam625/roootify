@@ -1,0 +1,83 @@
+/* Google Translate Widget Styling */
+
+/* Hide the "Powered by Google" branding */
+.goog-te-gadget-icon {
+    display: none !important;
+}
+
+/* Make the actual google widget invisible but clickable on top */
+.goog-te-gadget-simple {
+    opacity: 0 !important;
+    width: 32px !important;
+    height: 32px !important;
+    position: absolute !important;
+    top: 0 !important;
+    left: 0 !important;
+    cursor: pointer !important;
+}
+
+/* The icon inside the gadget */
+.goog-te-gadget-simple img {
+    display: none !important;
+    /* Hide default Google icon if we want to use our own, or style it */
+}
+
+/* We can use a pseudo-element to add a custom icon if needed, or just rely on the layout */
+/* For now, let's try to make the "Select Language" text disappear and just show a globe icon */
+
+/* Actually, the easiest way to make it a "small icon" is to hide everything and overlay a custom icon, 
+   but let's try to style the existing widget first to be minimal. */
+
+.goog-te-gadget-simple .goog-te-menu-value {
+    display: none !important;
+    /* Hide the text "Select Language" */
+}
+
+/* Hide the "Select Language" text if possible, or just style it */
+.goog-te-gadget-simple .goog-te-menu-value span:first-child {
+    display: none;
+    /* Hide the selected language text to just show icon if preferred, but user said "small button" */
+}
+
+/* Add a custom icon via background or pseudo-element on the container in Navbar */
+#google_translate_element {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><line x1="2" y1="12" x2="22" y2="12"></line><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"></path></svg>');
+    background-repeat: no-repeat;
+    background-position: center;
+    cursor: pointer;
+}
+
+/* Override Google's iframe top bar */
+.goog-te-banner-frame.skiptranslate {
+    display: none !important;
+}
+
+body {
+    top: 0px !important;
+}
+
+/* Fix the dropdown menu size and position */
+.goog-te-menu-frame {
+    max-width: 300px !important;
+    max-height: 400px !important;
+    width: 100% !important;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06) !important;
+    border-radius: 0.5rem !important;
+    border: 1px solid #e5e7eb !important;
+    position: absolute !important;
+    z-index: 10000 !important;
+    /* We might need to adjust top/right if it's fixed positioned by Google */
+    right: 1rem !important;
+    top: 4rem !important;
+    left: auto !important;
+}
+
+/* Ensure the iframe content (if accessible) or container doesn't overflow */
+iframe.goog-te-menu-frame {
+    width: 300px !important;
+    height: auto !important;
+}

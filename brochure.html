@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rootify - Empowering Indian Agriculture</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Rootify Brochure Unique Styles */
+        :root {
+            --primary-color: #2e7d32;
+            --secondary-color: #81c784;
+            --accent-color: #ffd54f;
+            --text-color: #333;
+            --bg-color: #f4f9f4;
+            --card-bg: #ffffff;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--bg-color);
+            overflow-x: hidden;
+        }
+
+        /* Header / Hero Section */
+        header {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            padding: 20px;
+        }
+
+        header h1 {
+            font-size: 4rem;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInDown 1s ease-out;
+        }
+
+        header p {
+            font-size: 1.5rem;
+            max-width: 600px;
+            margin-bottom: 40px;
+            animation: fadeInUp 1s ease-out 0.5s backwards;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 15px 40px;
+            background-color: var(--primary-color);
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: transform 0.3s, background-color 0.3s;
+            animation: fadeInUp 1s ease-out 1s backwards;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            background-color: var(--secondary-color);
+        }
+
+        /* Features Section */
+        .features {
+            padding: 80px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 100px;
+            height: 4px;
+            background-color: var(--accent-color);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+
+        .feature-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .feature-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            color: var(--primary-color);
+        }
+
+        .feature-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 15px;
+            color: var(--primary-color);
+        }
+
+        /* Showcase Section */
+        .showcase {
+            background-color: white;
+            padding: 80px 20px;
+        }
+
+        .showcase-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 60px;
+        }
+
+        .showcase-text {
+            flex: 1;
+        }
+
+        .showcase-image {
+            flex: 1;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .showcase-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 0.5s;
+        }
+
+        .showcase-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Future Scope Section */
+        .future-scope {
+            background: var(--primary-color);
+            color: white;
+            padding: 80px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .future-scope-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        .future-scope h2 {
+            font-size: 3rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--accent-color);
+        }
+
+        .scope-list {
+            list-style: none;
+            font-size: 1.2rem;
+        }
+
+        .scope-list li {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: flex-start;
+        }
+
+        .scope-list li i {
+            margin-right: 15px;
+            color: var(--accent-color);
+            margin-top: 5px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #1a1a1a;
+            color: #888;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        footer p {
+            margin-bottom: 10px;
+        }
+
+        /* Animations */
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header {
+                height: auto;
+                min-height: 100vh;
+                padding: 100px 20px;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+                margin-bottom: 40px;
+            }
+
+            .features,
+            .showcase,
+            .future-scope {
+                padding: 40px 20px;
+            }
+
+            .showcase-container,
+            .showcase-container.reverse {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            /* Ensure images appear above text on mobile if desired, or keep text first. 
+               Default column puts text first. */
+
+            .feature-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .feature-card {
+                padding: 30px;
+            }
+
+            .future-scope h2 {
+                font-size: 2rem;
+            }
+        }
+
+        /* Utility class for reverse layout on desktop */
+        .showcase-container.reverse {
+            flex-direction: row-reverse;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Hero Section -->
+    <header>
+        <h1>Rootify</h1>
+        <p>Bridging the gap between tradition and technology. A comprehensive platform for farmers to thrive.</p>
+        <a href="#" class="cta-button">SCROLL FOR MORE INFO</a>
+    </header>
+
+    <!-- Features Grid -->
+    <section class="features">
+        <div class="section-title">Key Features</div>
+        <div class="feature-grid">
+            <div class="feature-card">
+                <i class="fas fa-hand-holding-usd feature-icon"></i>
+                <h3>Smart Loans & Subsidies</h3>
+                <p>AI-driven recommendations for government schemes and loans tailored to your crop and region. Apply
+                    directly with a simplified process.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-chart-line feature-icon"></i>
+                <h3>Live Mandi Prices</h3>
+                <p>Real-time market rates from over 900+ mandis across India. Make informed decisions on when and where
+                    to sell.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-store feature-icon"></i>
+                <h3>Digital Marketplace</h3>
+                <p>Direct farmer-to-buyer connection. Farmers list crops, buyers place bids. No middlemen, better
+                    profits.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-seedling feature-icon"></i>
+                <h3>Crop Analytics</h3>
+                <p>Data-driven insights on trending crops, price forecasts, and nutritional values to optimize your
+                    harvest.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-robot feature-icon"></i>
+                <h3>AI Chatbot</h3>
+                <p>Multilingual voice-enabled assistant. Ask questions in your local language about farming, weather, or
+                    schemes.</p>
+            </div>
+            <div class="feature-card">
+                <i class="fas fa-cloud-sun feature-icon"></i>
+                <h3>Weather Insights</h3>
+                <p>Hyper-local weather forecasts to help you plan your sowing and harvesting activities effectively.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Secure Authentication -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="showcase-text">
+                <h2>Secure & Simple Authentication</h2>
+                <p>Getting started with Rootify is effortless. We offer a dual-panel login system designed for both
+                    Farmers and Buyers.</p>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">How It Works:</h4>
+                    <ul class="scope-list">
+                        <li><i class="fas fa-user-shield"></i> <strong>Role-Based Access:</strong> Select your role as a
+                            <strong>Farmer</strong> or <strong>Buyer</strong> during signup to unlock a tailored
+                            dashboard.</li>
+                        <li><i class="fas fa-lock"></i> <strong>Secure Data:</strong> Your personal information and
+                            transaction history are encrypted and stored securely.</li>
+                        <li><i class="fas fa-magic"></i> <strong>Seamless Experience:</strong> Our smooth sliding
+                            animation allows you to switch between Login and Signup instantly without reloading the
+                            page.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1633265486064-086b219458ec?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Secure Authentication">
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Smart Loan Matching -->
+    <section class="showcase" style="background-color: #f9f9f9;">
+        <div class="showcase-container reverse">
+            <div class="showcase-text">
+                <h2>Smart Loan & Subsidy Matching</h2>
+                <p>Never miss out on government aid again. Our AI-driven engine matches you with the perfect financial
+                    schemes.</p>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">The Process:</h4>
+                    <ol style="margin-left: 20px; line-height: 1.8;">
+                        <li><strong>Database:</strong> We aggregate data from 150+ state and central government schemes
+                            (e.g., PM-KISAN, KCC).</li>
+                        <li><strong>Filtering:</strong> Filter loans by <strong>State</strong> (e.g., Punjab,
+                            Maharashtra) and <strong>Crop</strong> (e.g., Rice, Cotton).</li>
+                        <li><strong>AI Matching:</strong> Our algorithm ranks loans based on your profile, ensuring you
+                            see the most relevant options first.</li>
+                        <li><strong>Easy Application:</strong> Click "Apply Now" to get direct access to application
+                            forms and guidance.</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Smart Loans Logic">
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Marketplace -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="showcase-text">
+                <h2>Direct Farmer-to-Buyer Marketplace</h2>
+                <p>Eliminate middlemen and maximize profits. Our marketplace connects farmers directly with bulk buyers
+                    and retailers.</p>
+
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">For Farmers:</h4>
+                    <ul class="scope-list" style="font-size: 1rem;">
+                        <li><i class="fas fa-plus-circle"></i> <strong>List Crops:</strong> Easily add listings with
+                            details like Crop Name, Quantity, and Expected Price.</li>
+                        <li><i class="fas fa-truck"></i> <strong>Transport Options:</strong> Indicate if transport is
+                            included to attract more buyers.</li>
+                        <li><i class="fas fa-gavel"></i> <strong>View Bids:</strong> Receive real-time bids from buyers
+                            and accept the best offer.</li>
+                    </ul>
+                </div>
+
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">For Buyers:</h4>
+                    <ul class="scope-list" style="font-size: 1rem;">
+                        <li><i class="fas fa-search"></i> <strong>Browse Listings:</strong> Search for fresh produce by
+                            crop type and location.</li>
+                        <li><i class="fas fa-hand-holding-usd"></i> <strong>Place Bids:</strong> Offer competitive
+                            prices directly to the farmer.</li>
+                        <li><i class="fas fa-file-contract"></i> <strong>Transparent Deals:</strong> View all details
+                            including transport availability before bidding.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1464226184884-fa280b87c399?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Marketplace Workflow">
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Analytics & Insights -->
+    <section class="showcase" style="background-color: #f9f9f9;">
+        <div class="showcase-container reverse">
+            <div class="showcase-text">
+                <h2>Data-Driven Crop Analytics</h2>
+                <p>Make informed decisions with real-time market data and predictive insights.</p>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">Key Features:</h4>
+                    <ul class="scope-list">
+                        <li><i class="fas fa-chart-line"></i> <strong>Trending Crops:</strong> See which crops are
+                            fetching high prices in your region (e.g., Basmati Rice in Punjab).</li>
+                        <li><i class="fas fa-rupee-sign"></i> <strong>Live Price Ticker:</strong> A scrolling ticker
+                            updates you on the latest mandi rates for commodities like Wheat, Tomato, and Onion.</li>
+                        <li><i class="fas fa-cloud-sun-rain"></i> <strong>Weather Integration:</strong> Get hyper-local
+                            weather forecasts to plan sowing and harvesting windows effectively.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="Analytics Dashboard">
+            </div>
+        </div>
+    </section>
+
+    <!-- Deep Dive: Multilingual AI Chatbot -->
+    <section class="showcase">
+        <div class="showcase-container">
+            <div class="showcase-text">
+                <h2>Multilingual AI Chatbot</h2>
+                <p>Breaking language barriers with advanced Voice-to-Voice interaction.</p>
+                <div style="margin-top: 20px;">
+                    <h4 style="color: var(--primary-color); margin-bottom: 10px;">Architecture:</h4>
+                    <ul class="scope-list">
+                        <li><i class="fas fa-microphone"></i> <strong>Voice Input (STT):</strong> Uses the Web Speech
+                            API to capture spoken words in Indian languages (Hindi, Tamil, Punjabi, etc.).</li>
+                        <li><i class="fas fa-language"></i> <strong>Translation Layer:</strong> The input is translated
+                            to English using <code>google-translate-api-x</code> for processing.</li>
+                        <li><i class="fas fa-server"></i> <strong>NLP Processing:</strong> The backend analyzes the
+                            English query to identify intent (Weather, Prices, Schemes) and fetches data.</li>
+                        <li><i class="fas fa-volume-up"></i> <strong>Voice Output (TTS):</strong> The response is
+                            translated back to the user's native language and spoken aloud using speech synthesis.</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="showcase-image">
+                <img src="https://images.unsplash.com/photo-1531746790731-6c087fecd65a?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80"
+                    alt="AI Chatbot">
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Scope Section -->
+    <section class="future-scope">
+        <div class="future-scope-container">
+            <h2>Future Scope</h2>
+            <ul class="scope-list">
+                <li><i class="fas fa-check-circle"></i> Add AI-based crop quality scanning for accurate grading.</li>
+                <li><i class="fas fa-check-circle"></i> Automate loan and subsidy application filing for farmers.</li>
+                <li><i class="fas fa-check-circle"></i> Integrate real-time logistics and transport booking.</li>
+                <li><i class="fas fa-check-circle"></i> Offer crop insurance, storage/warehousing support, and inventory
+                    tracking.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Rootify. All rights reserved.</p>
+        <p>Made with <i class="fas fa-heart" style="color: red;"></i> for Indian Agriculture.</p>
+    </footer>
+
+</body>
+
+</html>
