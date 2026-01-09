@@ -28,13 +28,31 @@ const ListingSchema = new mongoose.Schema({
     },
     bids: [{
         bidder: {
-            type: String, // Storing name for simplicity as per current frontend logic
+            type: String,
+            required: true
+        },
+        bidderId: {
+            type: mongoose.Schema.Types.ObjectId,
+            ref: 'User',
             required: true
         },
         amount: {
             type: Number,
             required: true
         },
+        status: {
+            type: String,
+            enum: ['pending', 'accepted', 'rejected'],
+            default: 'pending'
+        },
+        messages: [{
+            sender: String, // 'farmer' or 'buyer'
+            text: String,
+            time: {
+                type: Date,
+                default: Date.now
+            }
+        }],
         time: {
             type: Date,
             default: Date.now

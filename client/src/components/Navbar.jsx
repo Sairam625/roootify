@@ -65,11 +65,11 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className={`fixed w-full z-[1000] transition-all duration-300 ${isScrolled ? 'py-2 bg-primary/90 backdrop-blur-md shadow-lg' : 'bg-primary py-4'}`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4">
+    <nav className={`fixed w-full z-[1000] transition-all duration-300 ${isScrolled ? 'py-2 bg-primary/90 backdrop-blur-md shadow-lg' : 'bg-primary py-2'}`}>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-1">
 
         {/* Top Section: Logo Centered, Translate Right */}
-        <div className={`relative flex justify-center items-center ${isScrolled ? 'mb-0' : 'mb-4'} transition-all duration-300`}>
+        <div className={`relative flex justify-center items-center ${isScrolled ? 'mb-0' : 'mb-1'} transition-all duration-300`}>
 
           {/* Logo & Tagline */}
           <div
@@ -97,7 +97,7 @@ const Navbar = () => {
         </div>
 
         {/* Bottom Section: Navigation Links Centered (Desktop) */}
-        <div className={`hidden md:flex justify-center items-center space-x-10 transition-all duration-300 ${isScrolled ? 'border-t-0 pt-0' : 'border-t border-green-600/30 pt-4'}`}>
+        <div className={`hidden md:flex justify-center items-center space-x-10 transition-all duration-300 ${isScrolled ? 'border-t-0 pt-0' : 'border-t border-green-600/30 pt-1'}`}>
           <Link to="/" className="text-lg font-medium hover:text-yellow-400 transition hover:scale-105 transform duration-200">Home</Link>
           <Link to="/loans" className="text-lg font-medium hover:text-yellow-400 transition hover:scale-105 transform duration-200">Loans</Link>
           <Link to="/prices" className="text-lg font-medium hover:text-yellow-400 transition hover:scale-105 transform duration-200">Market Trends</Link>

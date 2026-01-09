@@ -11,6 +11,10 @@ const UserSchema = new mongoose.Schema({
         required: true,
         unique: true,
     },
+    phoneNumber: {
+        type: String,
+        required: false, // Optional for now to avoid breaking existing users, but should be required for new ones ideally
+    },
     role: {
         type: String,
         enum: ['farmer', 'buyer'],

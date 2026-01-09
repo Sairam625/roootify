@@ -33,7 +33,7 @@ function App() {
 
         <div className="relative z-10 flex flex-col min-h-screen">
           <Navbar />
-          <main className="flex-grow pt-24">
+          <main className="flex-grow pt-36">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/login" element={<Auth />} />

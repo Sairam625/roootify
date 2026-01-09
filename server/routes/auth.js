@@ -18,6 +18,7 @@ router.post('/register', async (req, res) => {
             email,
             password,
             role: req.body.role || 'farmer',
+            phoneNumber: req.body.phoneNumber,
         });
 
         if (user) {
