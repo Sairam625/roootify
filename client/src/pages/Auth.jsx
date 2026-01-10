@@ -35,7 +35,7 @@ const Auth = () => {
     const handleLogin = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5001/api/auth/login', {
+            const { data } = await axios.post('http://127.0.0.1:5001/api/auth/login', {
                 email: loginEmail,
                 password: loginPassword,
             });
@@ -50,7 +50,7 @@ const Auth = () => {
     const handleSignup = async (e) => {
         e.preventDefault();
         try {
-            const { data } = await axios.post('http://localhost:5001/api/auth/register', {
+            const { data } = await axios.post('http://127.0.0.1:5001/api/auth/register', {
                 name: signupName,
                 email: signupEmail,
                 phoneNumber: signupPhone,

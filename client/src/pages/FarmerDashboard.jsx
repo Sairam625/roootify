@@ -30,8 +30,10 @@ const FarmerDashboard = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        console.log('[DEBUG] Form submitted', formData);
 
         if (!user || !user.token) {
+            console.log('[DEBUG] No user/token');
             alert('Please login to list crops');
             return;
         }
@@ -42,8 +44,10 @@ const FarmerDashboard = () => {
                     Authorization: `Bearer ${user.token}`,
                 },
             };
+            console.log('[DEBUG] Sending request to http://localhost:5001/api/marketplace');
 
-            await axios.post('http://localhost:5001/api/marketplace', formData, config);
+            const response = await axios.post('http://127.0.0.1:5001/api/marketplace', formData, config);
+            console.log('[DEBUG] Response received', response.data);
 
             setSuccess(true);
             setFormData({
@@ -55,7 +59,11 @@ const FarmerDashboard = () => {
 
             setTimeout(() => setSuccess(false), 3000);
         } catch (error) {
-            console.error('Error creating listing:', error);
+            console.error('[DEBUG] Error creating listing:', error);
+            if (error.response) {
+                console.error('[DEBUG] Response data:', error.response.data);
+                console.error('[DEBUG] Response status:', error.response.status);
+            }
             alert('Failed to create listing');
         }
     };
@@ -202,7 +210,7 @@ const MyListings = ({ user, success }) => {
                 },
             };
 
-            const { data } = await axios.get('http://localhost:5001/api/marketplace/my', config);
+            const { data } = await axios.get('http://127.0.0.1:5001/api/marketplace/my', config);
             setListings(data);
         } catch (error) {
             console.error('Error fetching listings:', error);
@@ -218,7 +226,7 @@ const MyListings = ({ user, success }) => {
     const handleUpdateStatus = async (listingId, bidId, status) => {
         try {
             const config = { headers: { Authorization: `Bearer ${user.token}` } };
-            await axios.put(`http://localhost:5001/api/marketplace/${listingId}/bid/${bidId}/status`, { status }, config);
+            await axios.put(`http://127.0.0.1:5001/api/marketplace/${listingId}/bid/${bidId}/status`, { status }, config);
             fetchListings();
         } catch (error) {
             console.error('Error updating status:', error);
@@ -342,7 +350,7 @@ const ChatBox = ({ listingId, bidId, initialMessages, currentUser, onMessageSent
 
         try {
             const config = { headers: { Authorization: `Bearer ${currentUser.token}` } };
-            await axios.post(`http://localhost:5001/api/marketplace/${listingId}/bid/${bidId}/message`, { text: message }, config);
+            await axios.post(`http://127.0.0.1:5001/api/marketplace/${listingId}/bid/${bidId}/message`, { text: message }, config);
 
             setMessage('');
             onMessageSent(); // Trigger refresh
